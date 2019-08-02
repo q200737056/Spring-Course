@@ -1,0 +1,42 @@
+#服务配置
+server:
+  #服务端口
+  port: 8080
+  servlet:
+    # 项目contextPath
+    context-path: /
+  tomcat:
+    # tomcat的URI编码
+    uri-encoding: UTF-8
+    # tomcat最大线程数，默认为200
+    max-threads: 20
+    # Tomcat启动初始化的线程数，默认值25
+    min-spare-threads: 5
+
+#Spring配置
+spring:
+  #thymeleaf配置，默认前缀为templates
+  thymeleaf:
+    mode: HTML
+    encoding: utf-8
+    # 禁用缓存
+    cache: false
+  datasource:
+    #springboot2.02版本默认使用HikariCP
+    type: com.alibaba.druid.pool.DruidDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
+    username: root
+    password: q123
+  devtools:
+    restart:
+      #热部署开关
+      enabled: true
+# MyBatis配置
+mybatis:
+    # 搜索指定包别名
+  typeAliasesPackage: com.springboot2.test2
+    # 配置mapper的扫描，找到所有的mapper.xml映射文件
+  mapperLocations: classpath:mapper/*Mapper.xml
+    # 加载全局的配置文件
+  configLocation: classpath:property/mybatis-config.xml
