@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ehcache name="ruoyi">
+<ehcache name="test">
 
     <!-- 磁盘缓存位置 ,系统默认的临时目录-->
     <diskStore path="java.io.tmpdir"/>
