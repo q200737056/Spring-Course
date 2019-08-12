@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta name="keywords" content="springboot2实例教程">
+	<meta name="description" content="springboot2实例教程">
+	
+    <title>登录页面</title>
+</head>
+<body>
+<form action="/index/login" method="post" >
+<div style="width: 400px;margin:30px auto;">
+ 	
+    用户名：<input type="text" name="name" value="admin"><br /><br />
+    密码：<input type="password" name="password" value="admin"><br />
+  <br />
+    <input type="submit" value="登录" />
+    <br />
+    <span th:text="${msg==null?'':msg}"></span>
+</div>
+</form>
+</body>
+</html>

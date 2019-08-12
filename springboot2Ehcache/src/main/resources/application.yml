@@ -56,7 +56,7 @@ spring:
 # MyBatis配置
 mybatis:
     # 搜索指定包别名
-  typeAliasesPackage: com.springboot2.test2
+  typeAliasesPackage: com.springboot2.test3
     # 配置mapper的扫描，找到所有的mapper.xml映射文件
   mapperLocations: classpath:mapper/*Mapper.xml
     # 加载全局的配置文件

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ehcache name="ruoyi">
+
+    <!-- 磁盘缓存位置 ,系统默认的临时目录-->
+    <diskStore path="java.io.tmpdir"/>
+
+    <!-- 默认缓存
+    	maxEntriesLocalHeap(旧版 maxElementsInMemory):设置了缓存的上限,最多存储多少个对象
+        eternal:代表对象是否永不过期 (指定true则下面两项配置无效)
+        timeToIdleSeconds:设置对象在失效前的允许闲置时间（单位：秒）
+        timeToLiveSeconds:设置对象允许存活时间（单位：秒）
+        overflowToDisk:内存中Element数量达到最大时是否允许对象被写入到磁盘;
+        	要想使用磁盘缓存，缓存的Element必须实现序列化接口
+        memoryStoreEvictionPolicy：当达到最大限制时，Ehcache将会根据指定的策略去清理内存。
+      	  默认策略是LRU（最近最少使用）FIFO（先进先出） LFU（最少使用）
+      	maxEntriesLocalDisk:磁盘中的最大对象数，默认为0不限制
+      	diskExpiryThreadIntervalSeconds：磁盘缓存的清理线程运行间隔,默认是120秒
+      	diskPersistent：是否持久化磁盘缓存，默认false；设为true时系统初始化时会把磁盘cache加载到内存
+      	copyOnRead:当缓存项被读出时是否返回它的拷贝，默认false
+      	copyOnWrite:当缓存项被写入时，是否写入到它的拷贝中，默认false
+     -->
+    <defaultCache
+            maxEntriesLocalHeap="1000"
+            eternal="false"
+            timeToIdleSeconds="300"
+            timeToLiveSeconds="600"
+            overflowToDisk="true"
+            memoryStoreEvictionPolicy="LRU">
+    </defaultCache>
+
+    <cache name="myCache"
+           maxEntriesLocalHeap="200"
+           eternal="false"
+           timeToIdleSeconds="300"
+           timeToLiveSeconds="600"
+           overflowToDisk="true">
+    </cache>
+
+</ehcache>
+	
