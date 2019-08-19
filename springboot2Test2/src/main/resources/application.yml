@@ -21,8 +21,11 @@ spring:
     encoding: utf-8
     # 禁用缓存
     cache: false
+   #springboot2.x以下默认使用org.apache.tomcat.jdbc.pool.DataSource数据源
+   #springboot2.x版本默认使用com.zaxxer.hikari.HikariDataSource数据源
+   #所以druid连接池属性不会生效，如果想让配置生效，需要手动创建DruidDataSource
   datasource:
-    #springboot2.02版本默认使用HikariCP
+    
     type: com.alibaba.druid.pool.DruidDataSource
     driverClassName: com.mysql.jdbc.Driver
     url: jdbc:mysql://localhost:3306/demo?useUnicode=true&characterEncoding=utf-8&useSSL=false
@@ -49,6 +52,8 @@ spring:
     test-on-borrow: false
     #连接放入时是否校验，开启消耗性能，建议关闭
     test-on-return: false
+    #配置监控统计拦截的filters，去掉后监控界面sql无法统计，'wall'用于防火墙 
+    filters: stat,wall
   devtools:
     restart:
       #热部署开关

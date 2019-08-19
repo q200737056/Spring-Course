@@ -4,6 +4,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
+ * @author 课间指针   SpingBoot教程一
  * @SpringBootApplication注解 包含了以下3个注解
  * @ComponentScan ：自动扫描注册
  * @SpringBootConfiguration：与@Configuration作用相同，都是用来声明当前类是一个配置类

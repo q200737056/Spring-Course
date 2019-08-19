@@ -1,13 +1,14 @@
-package com.springboot2.test2.model;
+package com.springboot2.test4.model;
 
 import java.io.Serializable;
 
-public class User implements Serializable{
+public class User implements Serializable {
 
 	/**
 	 * 
 	 */
-	private static final long serialVersionUID = 8419525108248976817L;
+	private static final long serialVersionUID = 1L;
+	
 	private int id;
 	private String name;
 	private String password;

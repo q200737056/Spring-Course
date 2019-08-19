@@ -1,8 +1,8 @@
-package com.springboot2.test3.dao;
+package com.springboot2.test4.dao;
 
 import java.util.List;
 
-import com.springboot2.test3.model.User;
+import com.springboot2.test4.model.User;
 
 public interface IndexDao {
 	public String login(String name);

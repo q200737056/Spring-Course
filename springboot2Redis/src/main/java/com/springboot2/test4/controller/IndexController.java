@@ -1,4 +1,4 @@
-package com.springboot2.test3.controller;
+package com.springboot2.test4.controller;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,8 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.springboot2.test3.model.User;
-import com.springboot2.test3.service.IndexService;
+import com.springboot2.test4.model.User;
+import com.springboot2.test4.service.IndexService;
 
 
 
@@ -24,6 +24,7 @@ public class IndexController {
 	
 	@Autowired
 	private IndexService indexService;
+
 	/**
 	 * 首页登陆
 	 * @return
@@ -71,11 +72,11 @@ public class IndexController {
 	 */
 	@PostMapping("/queryUser")
 	public String queryUser(User user,ModelMap modelMap){
-		List<User> userList = new ArrayList<>();
-		User u = this.indexService.queryUserById(user.getId()+"");
-		if(u!=null){
-			userList.add(u);
-		}
+	   List<User> userList = new ArrayList<>();
+	   User u = this.indexService.queryUserById(user.getId()+"");
+	    if(u!=null){
+	    	userList.add(u);
+	    }
 		modelMap.put("userList", userList);
 		return "userList";
 	}

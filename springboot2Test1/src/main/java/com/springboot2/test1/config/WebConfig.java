@@ -33,6 +33,7 @@ public class WebConfig implements WebMvcConfigurer {
 		//其实springboot默认 已经设置了 处理静态资源路径
 		// 默认 /**  配置classpath:/static,classpath:/public,classpath:/resources,
 		//classpath:/META-INF/resources,servlet context:/
+		//这里的/**采用ant路径表达式法 
 		registry.addResourceHandler("/**").addResourceLocations("classpath:/static/");
 	}
 	/**

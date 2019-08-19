@@ -1,8 +1,8 @@
-package com.springboot2.test3.service;
+package com.springboot2.test4.service;
 
 import java.util.List;
 
-import com.springboot2.test3.model.User;
+import com.springboot2.test4.model.User;
 
 public interface IndexService {
 	public String login(String name);
