@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html  lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta name="keywords" content="springboot2实例教程">
+	<meta name="description" content="springboot2实例教程">
+	
+    <title>登录成功</title>
+    <style type="text/css">
+    	li{
+    	  list-style-type: none;
+    	}
+    </style>
+</head>
+<body>
+<p><span th:text="${session.username}"></span>，登陆成功！<a th:href="@{/index/logout}" target="_self">退出</a></p>
+<div style="width: 600px;margin: 10px auto;">
+     <form th:action="@{/index/queryUser}" method="post">
+		 <p>用户名：<input type="text" name="name" id="name"/></p>
+		 <p style="text-align: center;"><span>
+		 <button type="submit">查询</button>
+		 </span></p>
+		
+	 </form>
+	 <br/>
+	 <table border="1" style="width: 100%">
+ 	<caption><b>用户列表</b></caption>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>用户名</th>
+                <th>密码</th>
+                <th>电子邮箱</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <!-- Thymeleaf迭代 语法 -->
+        <tbody>
+            <tr th:each="user : ${userList}">
+                <td th:text="${user.id}">0</td>
+                <td th:text="${user.name}"></td>
+                <td th:text="${user.password}"></td>
+                <td th:text="${user.email}"></td>
+                <td align="center">
+                <a th:href="@{/index/toUpdate(id=${user.id},name=${user.name},password=${user.password},email=${user.email})}">
+                	修改</a>&nbsp;&nbsp;&nbsp;
+                <a th:href="@{/index/deleteUser(id=${user.id})}">删除</a></td>
+            </tr>
+           
+        </tbody>
+    </table>
+    <a th:href="@{/index/toAdd}">新增</a>
+</div>
+ 
+</body>
+</html>

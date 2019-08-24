@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html  lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+	<meta http-equiv="Content-Type" content="text/html;charset=utf-8">
+	<meta name="keywords" content="springboot2实例教程">
+	<meta name="description" content="springboot2实例教程">
+	
+    <title>修改用户</title>
+    <style type="text/css">
+    	li{
+    	  list-style-type: none;
+    	}
+    </style>
+</head>
+<body>
+
+<div style="width: 600px;margin: 10px auto;">
+	<form th:action="@{/index/updateUser}" method="post">
+	 <ul>
+	 	<li>ID：<span th:text="${user.id}"></span><input type="hidden" name="id" th:value="${user.id}"/></li>
+	 	<li>用户名：<input type="text" name="name" th:value="${user.name}"/></li>
+	 	<li>密码：<input type="text" name="password" th:value="${user.password}"/></li>
+	 	<li>邮箱：<input type="text" name="email" th:value="${user.email}"/></li>
+	 	<li><button type="submit">修改</button></li>
+	 </ul>
+	</form>
+</div>
+ 
+</body>
+</html>
