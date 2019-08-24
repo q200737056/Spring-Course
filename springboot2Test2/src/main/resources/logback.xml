@@ -13,6 +13,7 @@
 		<!-- 临界值过滤器-->
 		<filter class="ch.qos.logback.classic.filter.ThresholdFilter">
 			 <!-- 在日志配置级别的基础上过滤掉info级别以下的日志 -->
+			  <!-- 日志级别排序为： TRACE < DEBUG < INFO < WARN < ERROR -->
             <level>INFO</level>
             
         </filter>
@@ -44,6 +45,7 @@
 	
 	<!-- 
 		additivity属性默认为true，向上级（即root）传递
+		如果未设置level,默认继承root的level;
 		应没有设置appender-ref,此logger不输出日志
 		主要用来对各个包下的日志分类输出
 	 -->

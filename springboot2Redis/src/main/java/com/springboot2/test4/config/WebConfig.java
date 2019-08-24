@@ -77,8 +77,10 @@ public class WebConfig implements WebMvcConfigurer {
  
       // 生成一个默认配置，通过config对象即可对缓存进行自定义配置
         RedisCacheConfiguration config = RedisCacheConfiguration.defaultCacheConfig();
-        config = config.entryTtl(Duration.ofMinutes(3))     // 设置缓存的默认过期时间3分，使用Duration设置
-                .disableCachingNullValues();     // 不缓存空值
+       // 设置缓存的默认过期时间3分
+        config = config.entryTtl(Duration.ofMinutes(3)) 
+        		// 不缓存空值
+                .disableCachingNullValues();     
  
         // 设置一个初始化的缓存空间set集合
         Set<String> cacheNames =  new HashSet<>();

@@ -58,7 +58,7 @@ public class IndexServiceImpl implements IndexService {
 	@Override
 	public User updateUser(User user){
 		 this.indexDao.updateUser(user);
-		 return this.indexDao.queryUserById(Integer.valueOf(user.getId()));
+		 return user;
 	}
 	/**
 	 * @CacheEvict: 清除缓存

@@ -19,7 +19,7 @@ public class Log2HandlerInterceptor implements HandlerInterceptor {
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler)
 			throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("Log2HandlerInterceptor——preHandle方法调用");
+		System.out.println("Log2HandlerInterceptor拦截器——preHandle方法调用");
 		return true;
 	}
 	/**
@@ -29,7 +29,7 @@ public class Log2HandlerInterceptor implements HandlerInterceptor {
 	public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler,
 			ModelAndView modelAndView) throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("Log2HandlerInterceptor——postHandle方法调用");
+		System.out.println("Log2HandlerInterceptor拦截器——postHandle方法调用");
 	}
 	/**
 	 * 在视图渲染完成后回调,主要用来资源清理工作
@@ -38,6 +38,6 @@ public class Log2HandlerInterceptor implements HandlerInterceptor {
 	public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)
 			throws Exception {
 		// TODO Auto-generated method stub
-		System.out.println("Log2HandlerInterceptor——afterCompletion方法调用");
+		System.out.println("Log2HandlerInterceptor拦截器——afterCompletion方法调用");
 	}
 }
