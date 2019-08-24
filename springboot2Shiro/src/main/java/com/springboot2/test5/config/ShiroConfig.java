@@ -1,7 +1,5 @@
 package com.springboot2.test5.config;
 
-import java.util.ArrayList;
-import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -9,7 +7,6 @@ import org.apache.shiro.authc.credential.SimpleCredentialsMatcher;
 import org.apache.shiro.cache.MemoryConstrainedCacheManager;
 import org.apache.shiro.codec.Base64;
 import org.apache.shiro.mgt.SecurityManager;
-import org.apache.shiro.session.SessionListener;
 import org.apache.shiro.session.mgt.SessionManager;
 import org.apache.shiro.session.mgt.eis.MemorySessionDAO;
 import org.apache.shiro.session.mgt.eis.SessionDAO;
@@ -112,9 +109,7 @@ public class ShiroConfig {
     @Bean
     public SessionManager sessionManager() {
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
-       // Collection<SessionListener> listeners = new ArrayList<SessionListener>();
-       // listeners.add(new ShiroSessionListener());
-       //sessionManager.setSessionListeners(listeners);
+      
         //全局会话超时时间（单位毫秒），默认30分钟
         sessionManager.setGlobalSessionTimeout(1800000); 
         sessionManager.setSessionDAO(sessionDAO());
@@ -183,12 +178,13 @@ public class ShiroConfig {
      * *
      * 开启Shiro的注解(如@RequiresRoles,@RequiresPermissions),
      * 需借助SpringAOP扫描使用Shiro注解的类,并在必要时进行安全逻辑验证
-     * *
+     * 
      * 配置以下两个bean
      * DefaultAdvisorAutoProxyCreator(可选)
-     * AOP式方法级权限检查，扫描上下文，寻找所有的Advistor(通知器），将这些Advisor应用到所有符合切入点的Bean中。
-     * AuthorizationAttributeSourceAdvisor AOP式方法级权限检查
-     * * @return
+     * AOP式方法级权限检查，扫描上下文，寻找所有的Advistor(通知器），
+     * 将这些Advisor应用到所有符合切入点的Bean中。
+     * 
+     * @return
      */
     @Bean
     @DependsOn({"lifecycleBeanPostProcessor"})
@@ -197,6 +193,11 @@ public class ShiroConfig {
         advisorAutoProxyCreator.setProxyTargetClass(true);
         return advisorAutoProxyCreator;
     }
+    /**
+     *  开启AOP方式 注解扫描
+     * @param securityManager
+     * @return
+     */
     @Bean
     public AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor(SecurityManager securityManager) {
         AuthorizationAttributeSourceAdvisor authorizationAttributeSourceAdvisor = 
